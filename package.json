@@ -20,4 +20,7 @@
     "reload": "2.3.0",
     "typescript": "2.9.2"
   },
+  "dependencies": {
+    "requirejs": "^2.3.5"
+  }
 }
