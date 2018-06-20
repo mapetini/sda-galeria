@@ -1,0 +1,25 @@
+{
+  "name": "sda-galeria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "tsc -w | reload -b"
+    
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtifexEt/sda-galeria.git"
+  },
+  "author": "mistrzowie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArtifexEt/sda-galeria/issues"
+  },
+  "homepage": "https://github.com/ArtifexEt/sda-galeria#readme",
+  "devDependencies": {
+    "reload": "2.3.0",
+    "typescript": "2.9.2"
+  }
+}
