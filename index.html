@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="main.js"></script>
+    <script data-main="scripts/js/" src="node_modules/requirejs/require.js"></script>
+    <script>
+        require(['main']);
+    </script>
 </head>
 <body>
-    
+    <div class="gallery-box">
+        <button>&lt;&lt;</button>
+        <div class="main-container">
+            <h1></h1>
+            <div class="main-img-container">
+                <p></p>
+            </div>
+        </div>
+        <button>&gt;&gt;</button>
+    </div>
+    <div class="thumb-container">
+    </div>
 </body>
 </html>
