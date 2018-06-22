@@ -2,10 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
 }
 
 img {
-    width: 100%;
+    width: 80%;
     height: 60vh;
     object-fit: scale-down;
+}
+.thumbs-container {
+    display: flex;
+    width: 100vw;
+}
+.thumbs-container img {
+    width: 15%;
+    height: auto;
 }
