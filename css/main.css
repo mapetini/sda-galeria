@@ -4,15 +4,17 @@
 }
 
 .btn-prev {
-    position: absolute;
     left: 10px;
-    top: 50%;
 }
 
 .btn-next {
-    position: absolute;
     right: 10px;
-    top: 50%;
+}
+
+button {
+    cursor: pointer;
+    position: absolute;
+    top:50%
 }
 
 img {
@@ -28,9 +30,15 @@ img {
 .thumbs-container img {
     width: 15%;
     height: 50px;
+    cursor: pointer;
+    filter: grayscale();
 }
-
 .content {
     width: 100vw;
     height: 100vh;
+}
+
+.selected {
+    filter: none !important;
+    border: 3px solid rgb(92, 92, 92);
 }
