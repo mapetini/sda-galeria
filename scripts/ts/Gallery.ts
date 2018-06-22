@@ -13,8 +13,7 @@ export class Gallery {
     this.initElements(element);
     this.next.addEventListener("click", () => this.showNextPhoto());
     this.prev.addEventListener("click", () => this.showPrevPhoto());
-    this.updateMainPhoto();
-    this.updateThumbnails();
+    this.update();
   }
 
   initElements(element: Element) {
@@ -38,19 +37,35 @@ export class Gallery {
     if (this.counter >= this.photos.length) {
       this.counter = 0;
     }
-    this.updateMainPhoto();
+    this.update();
   }
   showPrevPhoto() {
     this.counter--;
     if (this.counter < 0) {
       this.counter = this.photos.length - 1;
     }
-    this.updateMainPhoto();
+    this.update();
   }
 
   updateThumbnails() {
     let currentImage: HTMLImageElement;
-    for (let i = 0; i < this.photos.length; i++) {
+    this.thumbnailContainer.innerHTML = "";
+    let lastPhotoIndex: number = this.counter + 4;
+    let firstThumbnailIndex = this.counter;
+    if (this.counter >= 4 && this.photos.length > 5) {
+        if (this.photos.length === 6) {
+            firstThumbnailIndex + 1;
+            lastPhotoIndex + 1;
+        } else if (this.photos.length > 6) {
+            firstThumbnailIndex + 2;
+            lastPhotoIndex + 2;
+        }
+    }
+    
+    if (lastPhotoIndex >= this.photos.length) {
+      lastPhotoIndex = this.photos.length - 1;
+    }
+    for (let i = this.counter; i <= lastPhotoIndex; i++) {
       currentImage = document.createElement("img");
       currentImage.setAttribute("src", this.photos[i].source);
       if (this.counter === i) {
@@ -65,6 +80,10 @@ export class Gallery {
 
   showPhotoByIndex(index: number) {
     this.counter = index;
+    this.update();
+  }
+  update() {
     this.updateMainPhoto();
+    this.updateThumbnails();
   }
 }
