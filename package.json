@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "tsc -w | reload -b"
+    "start": "tsc -w | reload -b",
+    "postinstall": "copyfiles --flat node_modules/requirejs/require.js scripts/libs"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "typescript": "2.9.2"
   },
   "dependencies": {
+    "copyfiles": "^2.0.0",
     "requirejs": "^2.3.5"
   }
 }
