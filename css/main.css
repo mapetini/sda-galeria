@@ -1,0 +1,23 @@
+/*.main-img-container {*/
+/*overflow: hidden;*/
+/*}*/
+/*.main-img {*/
+/*background: url(/img/picture.JPG) no-repeat center;*/
+/*width: 100vw;*/
+/*max-height: 100vh;*/
+/*height: 100vh;*/
+/*background-size: cover;*/
+/*overflow: hidden;*/
+/*}*/
+
+.gallery-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+    height: 90vh;
+    object-fit: contain;
+}
