@@ -8,6 +8,8 @@ export class Gallery {
         private description: Element;
         private thumbnail:Element;
         private counter: number = 0;
+        private div: string = '';
+        private localCounter: number = 0;
     constructor(private photos: Photo[], element: Element) {
         this.prev = element.getElementsByClassName("btn-prev")[0];
         this.next = element.getElementsByClassName("btn-next")[0];
@@ -19,12 +21,15 @@ export class Gallery {
         this.prev.addEventListener("click", () => this.showPrevPhoto());       
         this.mainImg.style.width = '50vw';
         this.updateMainPhoto();
+        this.putThumbnails();
+        console.log(this.thumbnail);
+
     }
     updateMainPhoto(){
         const photo = this.photos[this.counter];
         this.imgTitle.innerText = photo.title;
         this.description.innerText = photo.description;
-        this.mainImg.setAttribute('src',photo.source);
+        this.mainImg.setAttribute('src', photo.source);
     }
     showNextPhoto() {
         this.counter++;
@@ -32,6 +37,7 @@ export class Gallery {
             this.counter = 0;
         }
         this.updateMainPhoto();
+        this.putThumbnails();
         console.log('Slajd do przodu')
     }
     showPrevPhoto() {
@@ -40,6 +46,19 @@ export class Gallery {
             this.counter = this.photos.length - 1;
         }
         this.updateMainPhoto();
+        this.putThumbnails();
         console.log('Slajd do tylu')
+    }
+
+    putThumbnails() {
+        let localCounter = this.counter;
+        for (let i=0; i < 5; i++) {
+            if (localCounter + i >= this.photos.length) {
+                localCounter = 0;
+            }
+            this.div += `<div class='singleThumbnail'><img src='${this.photos[localCounter + i].source}' style='width: 10vw;'></div>`;
+        }
+        this.thumbnail.innerHTML = this.div;
+        this.div = '';
     }
 }
