@@ -47,10 +47,19 @@ export class Gallery {
     }
 
     updateThumbnails() {
-        let div: string = '';
+        let currentImage: HTMLImageElement;
         for (let i=0; i < this.photos.length; i++){
-            div += `<img src=${this.photos[i].source}>`;
+            currentImage = document.createElement('img');
+            currentImage.setAttribute('src', this.photos[i].source);
+            currentImage.addEventListener('click', () => {
+                this.showPhotoByIndex(i);
+            });
+            this.thumbnailContainer.appendChild(currentImage);
         }
-        this.thumbnailContainer.innerHTML = div;
+    }
+
+    showPhotoByIndex(index: number) {
+        this.counter = index;
+        this.updateMainPhoto();
     }
 }
