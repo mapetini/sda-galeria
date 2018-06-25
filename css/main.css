@@ -42,3 +42,7 @@ img {
     filter: none !important;
     border: 3px solid rgb(92, 92, 92);
 }
+
+.hidden {
+    display: none;
+}
