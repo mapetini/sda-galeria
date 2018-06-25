@@ -73,20 +73,20 @@ export class Gallery {
     this.thumbnailContainer.innerHTML = "";
     let lastPhotoIndex: number = this.counter + 4;
     let firstThumbnailIndex = this.counter;
-    if (this.counter >= 4 && this.photos.length > 5) {
+    if (this.counter >= 3 && this.photos.length > 5) {
         if (this.photos.length === 6) {
-            firstThumbnailIndex + 1;
-            lastPhotoIndex + 1;
+            firstThumbnailIndex -= 1;
+            lastPhotoIndex -= 1;
         } else if (this.photos.length > 6) {
-            firstThumbnailIndex + 2;
-            lastPhotoIndex + 2;
+            firstThumbnailIndex -= 2;
+            lastPhotoIndex -= 2;
         }
     }
     
     if (lastPhotoIndex >= this.photos.length) {
       lastPhotoIndex = this.photos.length - 1;
     }
-    for (let i = this.counter; i <= lastPhotoIndex; i++) {
+    for (let i = firstThumbnailIndex; i <= lastPhotoIndex; i++) {
       currentImage = document.createElement("img");
       if (!this.galleryLoaded) {
         this.addLoadListener(currentImage);
